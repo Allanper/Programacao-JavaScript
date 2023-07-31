@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+
+    <title> Frutaria </title>
+</head>
+<body>
+    
+    <div>
+        <label for="nome">Nome:</label>
+        <input id="nome" type="text" placeholder="Digite o Nome do Item">
+        
+        <label for="preco">Preço:</label>
+        <input id="preco" type="text" placeholder="Digite o Preço">
+
+        <label for="image">Link da Imagem: </label>
+        <input id="image" type="text" placeholder="Link da Imagem">
+
+        <button onclick="cadastrar()"> Cadastrar Item </button>
+        <button onclick="listar()"> Mostrar Itens </button>
+        <button onclick="limparTela()"> Limpar Lista </button>
+        <button onclick="exibirMaisCaro()"> Item Mais Caro </button>
+        <button onclick="exibirMaisBarato()"> Item mais Barato </button>
+    </div>
+    <div id="resultado"> </div>
+    
+
+</body>
+<script src="index.js"></script>
+</html>

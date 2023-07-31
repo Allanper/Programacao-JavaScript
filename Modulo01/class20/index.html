@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title> Class - 20 </title>
+</head>
+<body>
+        
+    <div>
+            <h1>STAND - HONDA </h1>
+            <input type="text" id="marca" placeholder="Marca do Carro"><br>
+            <input type="text" id="modelo" placeholder="Modelo do Carro"><br>
+            <input type="text" id="ano" placeholder="Ano do Carro"><br>
+            <input type="text" id="imagem" placeholder="Link da Imagem"><br>
+         
+
+            <button onclick="cadastrar()"> Cadastrar </button>
+            <button onclick="listar()"> Listar </button>
+            <button onclick="maisVelho()"> Mais Velho </button>
+            <button onclick="maisNovo()"> Mais Novo </button>
+            <button onclick="mediaIdade()"> Media </button>
+
+            <br>
+            <br>
+            <br>
+
+            <input id="filtro" type="text" placeholder="Filtrar por Ano">
+            <button onclick="filtroAno()"> Filtrar </button>
+            
+            
+       </div>
+       
+    <div id="resultado"></div>
+    
+</body>
+<script src="index.js"></script>
+</html>

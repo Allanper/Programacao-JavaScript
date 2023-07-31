@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 08</title>
+    <link rel="stylesheet" href="class08.css">
+</head>
+
+        <body onload="updateTriangle()">
+
+            <div class="container">
+                 
+                <h2>Discover: Which triangle is ?</h2>
+
+                <div class="screen1">
+                    <label for="firstSide">First side: </label>
+                    <input placeholder="Size of first side" id="firstSide" />
+
+                    <label for="secondSide">Second side: </label>
+                    <input placeholder="Size of the second side" id="secondSide" /> 
+
+                    <label for="thirdSide">Third side: </label>
+                    <input placeholder="size of the third side" id="thirdSide" />
+
+                    <button onclick="triangle()"> Discover </button>
+                    <button onclick="cleanDate()"> Clean Date </button>
+                </div>
+
+                <div id="Counter" class="screen2">
+                    Resultado: <label id="result"></label><br>
+
+                    Equilatero : <label id="labelEquilatero"> </label>
+                    Escaleno : <label id="labelEscaleno"> </label>
+                    Isosceles : <label id="labelIsosceles"> </label>
+                </div>
+
+            </div>  
+        </body>
+
+    <script src="class08.js"></script>
+</html>

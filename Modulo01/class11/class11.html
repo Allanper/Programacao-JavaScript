@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="class11.css">
+    <title>Class11</title>
+</head>
+        <body onload="updateVotes()">
+            <div class="container">
+                <div id="form"> 
+                    <input id="optionYes" name="answer" type="radio" value="YES">
+                    <label for="optionYes"> YES </label>
+
+                    <input id="optionNo" name="answer" type="radio" value="NO">
+                    <label for="optionNo" > NO </label>
+                    <br>
+                    <button onclick="vote()"> Vote </button>
+                </div>
+
+                <div id="result">
+                    SIM:  <label id="labelYes" for=""> </label>
+                    NÃO:  <label id="labelNo" for="">  </label>
+                </div>
+            </div>
+            
+        </body>
+    <script src="class11.js"></script>
+</html>
