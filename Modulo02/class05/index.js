@@ -33,7 +33,17 @@ app.post('/clients', (req, res) => {
 });
 
 app.delete('/clients', (req, res) => {
-    people.delete(req.body);
+    let indice = -1;
+    
+    for(let i=0; i < people.length; i++){
+       if(req.body.nome == people[i].nome){
+        indice = i;
+
+        break;
+       }
+    }
+    people.splice(indice, 1); 
+
     res.send("Client Deleted!!!")
 });
 
@@ -48,3 +58,6 @@ app.put('/clients', (req, res) => {
 app.listen(port, () => {
     console.log(`exemple app  listening on port ${port}`)
 })
+
+//people.shift()//exclui primeira posição do arrey
+//people.pop()// exclui ultima posição do arrey 
