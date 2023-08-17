@@ -23,16 +23,16 @@ let people = [{
 
 
 
-app.get('/clients', (req, res) => {
+app.get('/clients', (req, res) => { // essa rota consulta itens do Arrey
     res.json(people)
 });
 
-app.post('/clients', (req, res) => {
+app.post('/clients', (req, res) => {//essa rota adiciona um novo cliente no arrey
     people.push(req.body);
     res.send("new client !!! ")
 });
 
-app.delete('/clients', (req, res) => {
+app.delete('/clients', (req, res) => {// essa rota exclui um cliente do arrey
     let indice = -1;
     
     for(let i=0; i < people.length; i++){
@@ -47,8 +47,9 @@ app.delete('/clients', (req, res) => {
     res.send("Client Deleted!!!")
 });
 
-app.put('/clients', (req, res) => {
-    res.send("called PUT")
+app.put('/clients', (req, res) => {//essa rota altera dados dos clientes ja cadastrado
+  
+    res.send("Alteração Feita com sucesso!!!")
 });
 
 
