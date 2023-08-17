@@ -118,7 +118,7 @@ app.get('/menorNumero', (req,res) => {
 })
 
 app.get('/buscarPosicao', (req, res) => {
-    s
+    
 })
 
 
