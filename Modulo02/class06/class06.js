@@ -40,7 +40,7 @@ app.post('/calc', (req, res) => {
         res.json(r)
         
     } else {
-        res.json("Erro")
+        res.status(400).send({error: "Erro",})
     }
 
 
@@ -53,11 +53,9 @@ app.get('/calculos', (req,res)=>{
 })
 
 app.get('/limpar', (req,res)=>{
-    historico = []
-    res.send("Historico limpo")
+    historico = [];
+    res.send("Historico limpo");
 })
-
-
 
 app.get('/media', (req, res) => {
     
@@ -87,22 +85,41 @@ app.get('/numerosImpares', (req,res) => {
 app.get('/maiorNumero', (req,res) => {
     
     if (historico.length == 0){
-         res.send( "Não possui nenhum número no historico");
+         res.status(400).send( { error: "Não possui nenhum número no historico",});
 
     }else {
-        let maior=historico[0]
+        let maior = historico[0];
 
         for(let i=1; i < historico.length; i++ ){
                 if (historico[i] > maior){
-                    maior + historico[i]
+                    maior = historico[i] 
                 }
             
         }
-        res.json({ maior: maior });
+        res.json(maior);
      }
     
 })
 
+app.get('/menorNumero', (req,res) => {
+    if(historico.length == 0){
+        res.status(400).send({error: "Não A historico aqui",})
+    }else {
+        let menor = historico[0];
+
+        for( i = 1; i < historico.length; i++){
+         if( historico[i] < menor) {
+          menor = historico[i];
+         }
+        }
+        res.json(menor)
+    }
+   
+})
+
+app.get('/buscarPosicao', (req, res) => {
+    s
+})
 
 
 
