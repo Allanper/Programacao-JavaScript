@@ -13,7 +13,7 @@ let users = [  {id:10, username:"jao", password:"123"} , {id:11, username:"zé",
 
 function auth( username, password){
     
-   return users.some( (u) => u.username=== username && u.password==password  )
+   return users.some( (u) => u.username === username && u.password==password )
    
 }
 
