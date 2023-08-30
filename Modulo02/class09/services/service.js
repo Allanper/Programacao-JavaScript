@@ -36,8 +36,8 @@ function alterar(id,username, password){
 function deletar(id){
     let index = users.findIndex(u=> u.id== id) 
 
-    let obj = users[index];
-    users.splice(obj, 1)
+    let obj = index;
+    users.splice(index, 1)
 
     return "Cliente Deletado com sucesso"
 
