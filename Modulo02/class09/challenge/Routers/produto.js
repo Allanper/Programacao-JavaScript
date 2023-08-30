@@ -5,6 +5,8 @@ const controller = require('../Controllers/controller')
 
 router.post('/cadastrar', controller.cad);
 router.get('/listar', controller.listAll);
+router.put('/editar', controller.editOne);
+router.delete('/excluir', controller.del);
 
 
 
@@ -16,4 +18,4 @@ router.get('/listar', controller.listAll);
 
 
 
-module.exports = { router };
+module.exports = { router } ;
