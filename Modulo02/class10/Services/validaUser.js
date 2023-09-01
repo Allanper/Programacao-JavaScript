@@ -13,6 +13,11 @@ function validaUser(user, users){
         errors.push("A senha deve ter 4 ou mais Caracteres ")
 
     }
+    
+    //verificando se há espaços vazios entre Strings no capo nome do cadastro de usuario.
+    if(user.username.indexOf(' ') >= 0 ){
+        errors.push("Nome nao Pode haver espacos")
+    }
 
     return errors
         
