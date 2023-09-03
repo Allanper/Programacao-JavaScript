@@ -10,7 +10,31 @@ function cadastra(req, res) {
     res.json(r)
 }
 
+function lista(req,res) {
+
+    res.json(serviceUsuario.listar())
+}
+
+function altera(req, res) {
+   let id = req.body.id
+   let username = req.body.username;
+   let password  = req.body.password;
+
+   let a = serviceUsuario.editar(id, username, password);
+
+   res.json(a)
+}
+
+function exclui(req, res){
+    let id = req.body.id;
+
+   let e = serviceUsuario.excluir(id)
+   res.send(e)
+}
 
 module.exports = {
-    cadastra
+    cadastra,
+    lista,
+    altera,
+    exclui
 }
