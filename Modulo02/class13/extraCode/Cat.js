@@ -1,23 +1,41 @@
+//Orientacao a Objetos - OO
+//class -  objeto
+
 class Cat {
-    Contructor() {
-        this.name = ""
+
+    constructor(obj){
+        this.name=obj.name
+        this.raca=obj.raca
+        this.local=obj.local
     }
 
     miar(){
-        console.log('Miaaow ' + this.name);
+        console.log("miaoowww " + this.name + " "+ this.raca + " "+ this.local)
     }
+    save(){
+        //banco
+        //colletion
+        //insert
+    }
+    find(p){
+        //ler o parametro 
+        // montar um fitro
+        //inserir num array
+        //retornar o resultado
+
+    }
+    update(){}
 }
 
-let cat1 = new Cat()
-cat1.name = "João"
-cat1.miar();
+let cat1 = new Cat({name: "Pedro Alvares Cabral",raca: "frajola", local:"Porto"})
+cat1.miar()
+cat1.save()
 
+Cat.find({name:'Pedro ...'})
 
-let cat2 = new Cat()
-cat2.name = "Maria"
-cat2.miar();
+let cat2 =  new Cat({name:"Colombo", raca:"siamês", local:"Lisboa"})
+cat2.miar()
+cat2.save()
 
-
-let cat3 = new Cat()
-Cat.name = "larica"
-cat3.miar();
+let cat3 =  new Cat({name:"Dom Pedro I",raca:"rafeiro", local:"Setúbal"})
+cat3.miar()
