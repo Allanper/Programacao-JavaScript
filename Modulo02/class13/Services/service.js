@@ -28,8 +28,8 @@ function cad(username, password){
            }    
 }
 
-function listar(){
- return(users)
+async function listar(){
+ return await User.find({});
 }
 
 function editar(id,username, password){
