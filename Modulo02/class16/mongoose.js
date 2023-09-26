@@ -1,14 +1,23 @@
+const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 
 let strConexao =
   "mongodb+srv://thiagosilvats804:iIBlKR1N3iMM8FBf@cluster0.edcnhtx.mongodb.net/?retryWrites=true&w=majority";
 
+
+//criando uma Tabela Cão Atravez de uma Function pronta
 const Cao = criarModelCao();
 
+
+//criando uma Tabela Pessoa Atravez de uma Function pronta
 const Pessoa = criarModelPessoa();
 
+
+//criando uma Tabela SuperHero Atravez de uma Function pronta
 const SuperHero = criarModelSuperHero();
 
+
+//criando uma Tabela Power Atravez de uma Function pronta
 const Power = criarModelPowers();
 
 
@@ -17,31 +26,41 @@ const Power = criarModelPowers();
 async function toy() {
     await mongoose.connect(strConexao);
 
-   // let newPower2 = { nome: "Ciberpatia", descricao: "interagir com computadores diretamente através da mente e/ou controlar computadores mentalmente", forca: 10 }
-
-    // let newPower3 = { nome: "Apêndices", descricao: "O personagem tem braços extras", forca: 2 }
-
-    //let newPower4 = { nome: "Camuflagem", descricao: "mudar a cor e a aparência da pele", forca: 3 }
-
-    //let newPower5 = { nome: "Consciência Dimensional Cruzada", descricao: " detectar ações e eventos em outras dimensões do Multiverso", forca: 4 }
-
-    //let newPower6 = { nome: "Manipulação de Doenças", descricao: "A capacidade de controlar doenças", forca: 5 }
-
-    //let newPower7 = { nome: "Manipulação de holográficos", descricao: "O poder de manipular hologramas", forca: 6 }
-
+    //--------------------------------------------------------------------------
+    // comando usado para gravar um novo usuario no banco
+    //await gravarPower(newPower10);
     //let newPower8 = { nome: "Controle da Mente ", descricao: "A capacidade de forçar uma pessoa a ser boa através do controle da mente", forca: 7 }
 
-    //let newPower9 = { nome: "Regeneração", descricao: " capacidade de sobreviver a lesões graves que não seriam capazes de lidar", forca: 8 }
 
-    //let newPower10 = { nome: "Viagem no Tempo", descricao: "pode viajar para frente e para trás através do tempo", forca: 9 }
+    //-------------------------------------------------------------------------
+    //Usado para Editar um campo do model
 
     //await alterarPower("65120897f36ebd9a6087997d", {descricao: "capacidade de sobreviver a lesões graves que não seriam capazes de lidar"})
 
-
-
+     
+    //-------------------------------------------------------------------------
+     //usado para listar os usuarios desse model
     //listPower();
+    
+    //-------------------------------------------------------------------------
+   
+   /* let novoSuper = {
+        nome: "Mafaldaaa",
+        sexo: 'Feminino',
+        idade: 24,
+        imortal: false,
+        poderes: '65120897f36ebd9a6087997d'
+    }
+    await gravarSuperHero(novoSuper)*/
 
+    //------------------------------------------------------------------------
+    
+    // comando Populate que agrega masi informações
+    //let heroComPopulate = await buscarHeroPorId('6513588536f888cc46ece342')
+    //console.log(heroComPopulate)
 
+   //----------------------------------------
+    await listarTodosPorNome('Mafaldaaa')
 
 
     // -----------------------------------------------------------------------
@@ -50,15 +69,19 @@ async function toy() {
     let donoDoCao = {nome:"Virmerson", idade:42}
 
     // await gravar(caoDoVirmerson, donoDoCao);
-    //await gravarPower(newPower10);
+    
     
 
 
     // deletar("uiudsud0ds9d0sds0dsds")
+
     // await alterar ("6508abde57b0cb56cb1ddbbd", {cor:"blue"})
+
     // listar todo por raça
      //await listarTodosCaes();
+
     // await deletar("6508b16cf24d77461ad2049e");
+
      //let caoEncontrado = await buscarPorId("650b54fb0002101982a69b5d")
      //console.log(caoEncontrado)
     
@@ -67,6 +90,22 @@ async function toy() {
 
 toy()
 
+
+async function listarTodosPorNome(nome){
+    lista = await SuperHero.find({ nome: nome })
+    console.log(lista)
+  }
+  
+
+//Populate 
+async function buscarHeroPorId(id){
+    try {
+      return await SuperHero.findById(id).populate("poderes")
+     
+    }catch (error){
+       console.log(error)
+    }
+}
 
 //findByIdAndUpdate
 async function alterarPower(id, obj){
@@ -82,25 +121,18 @@ async function alterarPower(id, obj){
     
 }
 
-async function gravarSuperHero(objSuperHero) {
-
-    const newHero = new SuperHero(objSuperHero)
-    const power = mongoose.SchemaType.populate.objPower.Power
-
-
-
-}
-
-async function gravar(objCao, objPessoa) {
-   
-    const novaPessoa = new Pessoa(objPessoa)
-    await novaPessoa.save()
-
-    const novoCao = new Cao(objCao);
-    novoCao.dono = novaPessoa._id
-    await novoCao.save();
-
-    console.log("Cão salvo no MongoDB!");
+async function gravarSuperHero(objSuperHero, obj) {
+    try {
+        const poderesTabela = await Power.findOne(obj);
+        
+        const newHero = new SuperHero(objSuperHero);
+        newHero.poderes = poderesTabela._id
+        await newHero.save()
+       
+      }catch(erro){
+           console.log(erro)
+      }
+     
 }
 
 
