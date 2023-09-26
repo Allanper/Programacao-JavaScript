@@ -1,0 +1,1 @@
+Pesquizar como cadastrar um superHeroi com poderes de uma tabela ja cadastrado!!!
