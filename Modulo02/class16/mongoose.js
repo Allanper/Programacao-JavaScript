@@ -44,14 +44,14 @@ async function toy() {
     
     //-------------------------------------------------------------------------
    
-   /* let novoSuper = {
+   let novoSuper = {
         nome: "Mafaldaaa",
         sexo: 'Feminino',
         idade: 24,
         imortal: false,
-        poderes: '65120897f36ebd9a6087997d'
+        poderes: new mongoose.Types.ObjectId('65120897f36ebd9a6087997d')
     }
-    await gravarSuperHero(novoSuper)*/
+    await gravarSuperHero(novoSuper)
 
     //------------------------------------------------------------------------
     
@@ -121,12 +121,12 @@ async function alterarPower(id, obj){
     
 }
 
-async function gravarSuperHero(objSuperHero, obj) {
+async function gravarSuperHero(objSuperHero) {
     try {
-        const poderesTabela = await Power.findOne(obj);
+        //const poderesTabela = await Power.findOne(obj);
         
         const newHero = new SuperHero(objSuperHero);
-        newHero.poderes = poderesTabela._id
+       // newHero.poderes = poderesTabela._id
         await newHero.save()
        
       }catch(erro){
