@@ -21,6 +21,6 @@ const connectionString ="mongodb+srv://adminLojaOnline:Piylu7veug8z1ifk@cluster0
 mongoose.connect(connectionString);
 
 
-app.listen(port, () => {
-    console.log("Servidor rodando");
+app.listen(port , () => {
+    console.log(" Servidor rodando ");
 });
