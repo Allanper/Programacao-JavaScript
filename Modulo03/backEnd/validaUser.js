@@ -20,7 +20,7 @@ function validaUser(user, users){
 
 }
 
-module.exports = validaUser;
+module.exports = validaUser ;
 
 
 
