@@ -6,8 +6,8 @@ const userRoute= require('./route/user-router.js')
 const app = express();
 
 const port = 3000;
-app.use(express.json())
-app.use("/user",userRoute)
+app.use(express.json());
+app.use("/user",userRoute);
 
 
 
