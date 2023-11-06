@@ -1,5 +1,6 @@
 <template>
   <User />
+    <div> Product List</div>
 </template>
 
 <script setup>

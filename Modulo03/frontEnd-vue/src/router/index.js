@@ -1,10 +1,13 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
+import ProductList from "@/views/ProductList";
+import NewUser from "@/views/NewUser";
+import Contact from "@/views/Contact";
+
 
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
     children: [
       {
         path: '',
@@ -16,6 +19,18 @@ const routes = [
       },
     ],
   },
+  {
+    path:'/user',
+    component: NewUser,
+  },
+  {
+    path:'/contact',
+    component: Contact,
+  },
+  {
+    path:'/product',
+    component: ProductList,
+  },
 ]
 
 const router = createRouter({
@@ -23,4 +38,4 @@ const router = createRouter({
   routes,
 })
 
-export default router
+export default router;
