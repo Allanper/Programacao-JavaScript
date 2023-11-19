@@ -8,7 +8,7 @@
 
         <v-text-field label="Username" variant="outlined" v-model="user.username"></v-text-field>
         <v-text-field label="Password" type="Password" variant="outlined" v-model="user.password"></v-text-field>
-        <v-btn   class="mt-2" @click="cadastrar" >Cadastrar</v-btn>
+        <v-btn   class="mt-2" @click="cadastrar" > Cadastrar </v-btn>
        
     </v-sheet>
    
