@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const userRoute= require('./route/user-router.js');
+const dotenv = require("dotenv");
 const cors = require('cors');
+dotenv.config();
 
 
 const app = express();
@@ -19,10 +21,9 @@ app.use("/user",userRoute);
 //conecta com o banco 
 
 
-const connectionString ="mongodb+srv://adminLojaOnline:Piylu7veug8z1ifk@cluster0.70t8cxj.mongodb.net/?retryWrites=true&w=majority";
+const connectionString = process.env.CONNECTION_STRING;
 mongoose.connect(connectionString);
 
-
 app.listen(port, () => {
-    console.log("Servidor rodando");
+    console.log(`Servidor rodando na porta ${port}`);
 });
