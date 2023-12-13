@@ -20,14 +20,22 @@
         <v-btn   class="mt-2" @click="cadastrar" >Cadastrar</v-btn>
     
         <!-- 5 -->
-        <div id="lista">
+        <v-card class="mx-auto" max-width="500">
+         <v-list lines="two">
+            <v-list-item v-for="u in users" :key="u._id" :title="u.username"    :subtitle="Subtitle">
+             <template v-slot:prepend>
+                <v-icon icon="mdi-account"></v-icon>
+             </template>
 
-               <div v-for="u in users">
-                    {{u.username}} --------
-                    <button style="border:1px solid black"> excluir</button>
-                  
-               </div>
-        </div>
+             <template v-slot:append>
+                <v-btn color="grey-lighten-1" icon="mdi-delete" variant="text"></v-btn>
+
+                <v-btn color="grey-lighten-1" icon="mdi-pencil" variant="text"></v-btn>
+             </template>
+
+            </v-list-item>
+         </v-list>
+        </v-card>
         
     </v-sheet> 
 </template>
