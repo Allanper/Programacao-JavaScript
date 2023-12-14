@@ -18,8 +18,8 @@ async function autenticar(username, password) {
   }
 }
 
-function cadastrar(username, password) {
-  const u = new User({ username, password }); //username:username , password: password
+function cadastrar(username, fullname, age, email, password) {
+  const u = new User({ username, fullname, age, email, password}); 
 
   u.save()
     .then(() => {
@@ -32,8 +32,8 @@ async function listar() {
   return await User.find({});
 }
 
-async function alterar(id, username, password) {
-  await User.findByIdAndUpdate(id, { username, password });
+async function alterar(id, username, fullname, age, email, password) {
+  await User.findByIdAndUpdate(id, { username, fullname, age, email, password });
   return { msg: "Alterado com sucesso " };
 }
 

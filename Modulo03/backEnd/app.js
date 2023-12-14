@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const userRoute= require('./route/user-router.js');
+const productRoute = require('./route/product-router.js')
 const dotenv = require("dotenv");
 const cors = require('cors');
 dotenv.config();
@@ -12,6 +13,7 @@ app.use(cors());
 const port = 3001;
 app.use(express.json());
 app.use("/user",userRoute);
+app.use("/product", productRoute);
 
 
 

@@ -14,9 +14,12 @@ async function autenticar(req, res) {
 
 function cadastrar(req, res) {
   let username = req.body.username;
+  let fullname = req.body.fullname;
+  let age = req.body.age;
+  let email = req.body.email;
   let password = req.body.password;
 
-  let r = userServices.cadastrar(username, password);
+  let r = userServices.cadastrar(username, fullname, age, email, password);
 
   res.json(r);
 }
@@ -28,9 +31,12 @@ async function listar(req, res) {
 async function alterar(req, res) {
   let id = req.body.id;
   let username = req.body.username;
+  let fullname = req.body.fullname;
+  let age = req.body.age;
+  let email = req.body.email;
   let password = req.body.password;
 
-  let r = await userServices.alterar(id, username, password);
+  let r = await userServices.alterar(id, username, fullname, age, email, password);
 
   res.json(r);
 }
