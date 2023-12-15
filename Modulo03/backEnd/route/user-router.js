@@ -6,7 +6,7 @@ const verificaToken = require("../middleware/verificaToken.js");
 router.post("/autenticar", usuarioController.autenticar),
   router.post("/cadastrar",  usuarioController.cadastrar),
   router.get("/listar",  usuarioController.listar),
-  router.put("/alterar", usuarioController.alterar),
-  router.delete("/deletar", usuarioController.deletar);
+  router.put("/alterar/:id", usuarioController.alterar),
+  router.delete("/deletar/:id", usuarioController.deletar);
 
 module.exports = router;

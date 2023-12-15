@@ -38,8 +38,12 @@ async function alterar(id, username, fullname, age, email, password) {
 }
 
 async function deletar(id) {
-  await User.findByIdAndRemove(id);
-  return " Deletado com sucesso!";
+  try{
+    await User.findByIdAndRemove(id);
+    return " Deletado com sucesso!";
+  } catch(error) {
+    return error;
+  } 
 }
 
 module.exports = {

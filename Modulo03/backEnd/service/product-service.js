@@ -28,7 +28,7 @@ async function alterar(id, nome, descricao, preco, imagem, categoria) {
 async function deletar(id) {
  await Produto.findByIdAndRemove(id)
 
- return "Deletado Com Sucesso! "
+ return "Deletado Com Sucesso!"
 }
 
 

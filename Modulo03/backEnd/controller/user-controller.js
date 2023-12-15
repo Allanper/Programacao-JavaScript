@@ -29,7 +29,7 @@ async function listar(req, res) {
 }
 
 async function alterar(req, res) {
-  let id = req.body.id;
+  let id = req.params.id;
   let username = req.body.username;
   let fullname = req.body.fullname;
   let age = req.body.age;
@@ -42,7 +42,7 @@ async function alterar(req, res) {
 }
 
 async function deletar(req, res) {
-  let id = req.body.id;
+  let id = req.params.id;
 
   let r = await userServices.deletar(id);
 

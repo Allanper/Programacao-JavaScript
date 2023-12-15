@@ -35,7 +35,7 @@
              </template>
 
              <template v-slot:append>
-                <v-btn color="grey-lighten-1" icon="mdi-delete" variant="text"></v-btn>
+                <v-btn color="grey-lighten-1" icon="mdi-delete" variant="text" @click="deletar(u._id)"></v-btn>
 
                 <v-btn color="grey-lighten-1" icon="mdi-pencil" variant="text"></v-btn>
              </template>
@@ -100,11 +100,19 @@ export default{
             let response = await axios.get("http://localhost:3001/user/listar")
             users.value = await response.data
         }
+
+        async function deletar(id) {
+            let response = await axios.delete("http://localhost:3001/user/deletar/"+id)
+            let mensagem = await response.data
+            alert(mensagem)
+            buscarUsuarios()
+        }
+
         onBeforeMount(() => {
             buscarUsuarios()
         })
 
-        return {user, users, cadastrar, exibeAlerta} 
+        return {user, users, cadastrar, exibeAlerta, deletar} 
        
        
         
