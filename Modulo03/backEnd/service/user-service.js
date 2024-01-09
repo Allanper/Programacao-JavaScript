@@ -33,7 +33,14 @@ async function listar() {
 }
 
 async function alterar(id, username, fullname, age, email, password) {
-  await User.findByIdAndUpdate(id, { username, fullname, age, email, password });
+  let userData = { 
+          username: (username !="") ? username : undefined, 
+          fullname: (fullname !="") ? fullname : undefined, 
+          age: (age !="") ? age : undefined, 
+          email: (email!="") ? email : undefined, 
+          password: (password !="") ? password : undefined,
+  }
+  await User.findByIdAndUpdate(id, userData);
   return { msg: "Alterado com sucesso " };
 }
 
