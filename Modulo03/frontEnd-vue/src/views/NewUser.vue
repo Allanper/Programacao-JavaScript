@@ -1,6 +1,6 @@
 <template>
 
-    <v-sheet width="300" class="mx-auto">
+    <v-sheet width="300" class="mx-auto" v-if="token.autenticado">
         <h1> Novo usuário  </h1>
 
         
@@ -14,7 +14,7 @@
             title="Sucesso"
             text="Cadastro com sucesso!"
             ></v-alert>
-        {{ user._id}}
+        
         <v-text-field label="Username" variant="outlined" v-model="user.username"></v-text-field>
 
         <v-text-field label="Full Name" variant="outlined" v-model="user.fullname"></v-text-field>
@@ -62,6 +62,7 @@ export default{
          const user = ref({})
          const users = ref([]) //reflexivo
          const exibeAlerta = ref({show:false})
+         const token = ref({autenticado:true})
          
         async function cadastrar(){
             try {  
@@ -129,7 +130,7 @@ export default{
                     cadastrar()
                     
                 }
-                cancelar()
+                //cancelar()
                 resetCampos()
         }
 
@@ -150,10 +151,20 @@ export default{
         }
 
         onBeforeMount(() => {
-            buscarUsuarios()
+            //ler o localStorage
+            const tokenLocal = localStorage.getItem("token")
+            
+           
+            if(tokenLocal){
+                token.value={autenticado:true }
+                buscarUsuarios()
+            }else {
+                 token.value={autenticado:false }
+            }
+
         })
 
-        return {user, users, cadastrar, exibeAlerta, deletar, editar, alterar, acaoSalvar, cancelar } 
+        return {user, users, cadastrar, exibeAlerta, deletar, editar, alterar, acaoSalvar, cancelar, token } 
        
        
         

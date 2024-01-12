@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import ProductList from "@/views/ProductList";
 import NewUser from "@/views/NewUser";
 import Contact from "@/views/Contact";
+import Login from "@/views/Login"
 
 
 const routes = [
@@ -31,6 +32,10 @@ const routes = [
     path:'/product',
     component: ProductList,
   },
+  {
+    path:'/login',
+    component: Login
+  }
 ]
 
 const router = createRouter({
